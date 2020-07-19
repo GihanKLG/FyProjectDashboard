@@ -6,23 +6,24 @@ import { AppComponent } from './app.component';
 import { GooglemapComponent } from './googlemap/googlemap.component';
 import {RouterModule, Routes} from '@angular/router'; 
 import { HttpClientModule } from '@angular/common/http';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
-  
-  {
-    path: 'googlemap',
-    component: GooglemapComponent
-  }
-]
+  { path: '', component: DashboardComponent },
+  { path: 'googlemap', component: GooglemapComponent }
+];
+
 @NgModule({
   declarations: [
     AppComponent,
-    GooglemapComponent
+    GooglemapComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(routes),
   ],
   providers: [],
   bootstrap: [AppComponent]
