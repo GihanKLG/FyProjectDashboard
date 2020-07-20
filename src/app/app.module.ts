@@ -7,6 +7,7 @@ import { GooglemapComponent } from './googlemap/googlemap.component';
 import {RouterModule, Routes} from '@angular/router'; 
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
@@ -21,6 +22,7 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    CalendarModule,
     AppRoutingModule,
     HttpClientModule,
     RouterModule.forRoot(routes),

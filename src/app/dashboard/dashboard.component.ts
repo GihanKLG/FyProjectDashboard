@@ -9,6 +9,9 @@ import { google } from "google-maps";
 })
 export class DashboardComponent implements AfterViewInit {
     title = 'angular-gmap';
+    public minDate: Date = new Date ("05/07/2017");
+    public maxDate: Date = new Date ("08/27/2017");
+    public value: Date = new Date ("05/16/2017");
     @ViewChild('mapContainer', { static: false }) gmap: ElementRef;
     map: google.maps.Map;
     lat = 5.949090;
