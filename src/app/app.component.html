@@ -1,2 +1,24 @@
 <!-- <div #mapContainer id="map"></div> -->
-<router-outlet></router-outlet>
+<div style="background-color: beige; padding: 10px 10px 10px 10px; text-align: center">
+    <strong> This is a placeholder for header. </strong>
+</div>
+ 
+<table style="min-height: 400px">
+    <tr>
+        <td style="background-color: lightblue;min-width: 150px; padding-left: 15px">
+            <div > 
+                <strong>Left Nav</strong> 
+                <div>item 1</div>
+                <div>item 2</div>
+ 
+            </div>
+        </td>
+        <td style="padding-left: 50px; background-color: lightcyan; min-width: 800px;">
+            <router-outlet></router-outlet>            
+        </td>
+    </tr>
+</table>
+ 
+<div style="background-color: beige; padding: 10px 10px 10px 10px;  text-align: center">
+    <strong> This is a placeholder for footer. </strong>
+</div>
