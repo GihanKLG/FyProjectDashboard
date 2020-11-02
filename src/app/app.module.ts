@@ -10,13 +10,19 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CalendarModule } from '@syncfusion/ej2-angular-calendars';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
-import { HeaderComponent } from './header/header.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { GithubFollowerComponent } from './github-follower/github-follower.component';
 import { GithubFollowerProfileComponent } from './github-follower-profile/github-follower-profile.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { AddUserComponent } from './add-user/add-user.component';
+import { EditUserComponent } from './edit-user/edit-user.component';
+import { ListUserComponent } from './list-user/list-user.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
+  { path: 'add-user', component: AddUserComponent },
+  { path: 'list-user', component: ListUserComponent },
+  { path: 'edit-user', component: EditUserComponent },
   { path: 'signup', component: SignupComponent},
   { path: 'dashboard', component: DashboardComponent },
   { path: 'googlemap', component: GooglemapComponent },
@@ -32,10 +38,13 @@ const routes: Routes = [
     DashboardComponent,
     LoginComponent,
     SignupComponent,
-    HeaderComponent,
     PageNotFoundComponent,
     GithubFollowerComponent,
-    GithubFollowerProfileComponent
+    GithubFollowerProfileComponent,
+    NavbarComponent,
+    AddUserComponent,
+    EditUserComponent,
+    ListUserComponent
   ],
   imports: [
     BrowserModule,
