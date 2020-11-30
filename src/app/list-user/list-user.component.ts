@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { UserContact } from '../usercontact/usercontact.model';
-import { UsercontactService } from '../usercontact/usercontact.service';
-import { Router } from '@angular/router'
+// import { UsercontactService } from '../usercontact/usercontact.service';
+import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-list-user',
@@ -11,26 +13,31 @@ import { Router } from '@angular/router'
 export class ListUserComponent implements OnInit {
   usercontacts: UserContact[]; // Array<string>
   usercont: UserContact;
+  public displayedColumns = ['id', 'name', 'username', 'email' ];
 
-  constructor(private ucs: UsercontactService, private router: Router) { }
+  public dataSource = new MatTableDataSource<UserContact>();
 
-  editUserContact(usercontact: UserContact) {
+  constructor(private router: Router, private http:HttpClient) { }
+
+  display(usercontact: UserContact) {
     console.log(usercontact);
     localStorage.removeItem('editUserId');
     localStorage.setItem('editUserId', usercontact.id.toString());
-    this.router.navigate(['edit']);
-    // this.ucs.update(usercontact);
-  }
-
-  deleteUserContact(usercontact: UserContact) {
-    console.log(usercontact);
-    this.ucs.delete(usercontact);
+    this.router.navigate(['display']);
   }
 
   ngOnInit(): void {
-    console.log('usercontact:init');
-    this.usercontacts = this.ucs.getall();
-    console.log(this.usercontacts);
+    let responce:any[];
+    var url = 'https://jsonplaceholder.typicode.com/users';
+    this.http.get(url).subscribe((res: any) => {
+     console.log(res);
+     this.dataSource.data = res as UserContact[]; 
+     this.usercontacts  = res;
+   })
+    
   }
 
 }
+
+
+
