@@ -16,11 +16,13 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { EditUserComponent } from './edit-user/edit-user.component';
 import { ListUserComponent } from './list-user/list-user.component';
 import { TestingComponent } from './testing/testing.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { from } from 'rxjs';
 import { UserComponent } from './user/user.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatTableModule} from '@angular/material/table';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
@@ -58,10 +60,12 @@ const routes: Routes = [
     CalendarModule,
     AppRoutingModule,
     FormsModule,
+    ReactiveFormsModule,
     MatTableModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
     BrowserAnimationsModule,
+    Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,3 +1,8 @@
+<br>
+<div class="form-group">
+  <input type="text" class="form-control" placeholder="Search Here" [(ngModel)]="term">
+</div>
+
 <table>
     <thead>
       <tr>
@@ -7,10 +12,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of users$">
+      <tr *ngFor="let user of users$ | filter:term">
         <td>{{ user.id }}</td>
         <td>{{ user.name }}</td>
         <td>{{ user.movies }}</td>
       </tr>
     </tbody>
   </table>
+
+
